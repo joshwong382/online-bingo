@@ -46,7 +46,7 @@ export function useBingoDetection(cells: CellWithChecked[]) {
     return winning;
   }, [completedLines]);
 
-  const hasBingo = completedLines.length > 0;
+  const hasBingo = completedLines.length >= 2;
 
   return {
     completedLines,

@@ -1,39 +1,41 @@
 export type BingoCardData = {
   id: string;
   name: string;
+  freeSpaces: number[];
   prompts: string[];
 };
 
 export const bingoCards: Record<string, BingoCardData> = {
   card1: {
     id: "card1",
-    name: "1. Intro",
+    name: "Get to know your fellow(ship) mates!!",
+    freeSpaces: [],
     prompts: [
-      "Loves playing Valorant",
-      "Born outside of Canada",
-      "Works with kids",
-      "Has more than one pet",
-      "Baptised outside of NTCBC",
-      "Currently owns or has owned their own business",
-      "Has a profession in the medical field",
-      "Wears Contacts",
-      "Has gone camping for real (not car camping)",
-      "Has played a sport in another country",
-      "Has pulled an all-nighter",
-      "Plays a stringed instrument",
-      "FREE SPACE",
-      "Commutes regularly",
-      "Had made the switch from Android to Apple (or vice versa)",
-      "Has driven a manual transmission vehicle",
-      "Has long hair past the shoulders",
-      "Has broken a bone",
-      "Knows what their blood type is",
-      "Will be travelling outside of Toronto for the holidays",
-      "Loves collecting cards (e.g. pokemon, yugi-oh, magic the gathering)",
-      "Has a food allergy",
-      "Is left-handed",
-      "Has at least one piercing on each ear",
-      "Has dyed their hair"
+      "Has been to 5+ countries outside of Canada (Which ones?)",
+      "Has watched the same movie or TV show 3+ times (Which one?)",
+      "Cooks regularly (What's your go-to dish?)",
+      "Matches 3/4 or 4/4 of your MBTI personality type",
+      "Will be flying this summer (Where to?)",
+      "Has broken a bone or had a major injury (What happened?)",
+      "Has 2 or more siblings (How many?)",
+      "Has a pet with a human name (What's the name?)",
+      "Is in the same program or discipline as you (Which one?)",
+      'Can name 5-6 TTC lines (not "1-6") (Which lines?)',
+      "Has a baby photo of themselves on their phone (How old in the photo?)",
+      "Has a hot take that is actually a hot take (What is it?)",
+      "Celebrated their 28th birthday (How?)",
+      "Has lived their entire lives in Ontario (Which city?)",
+      "Exercises 4+ times per week (What do you do?)",
+      "Can name 10 players on the 2025 Blue Jays (Name them!)",
+      "Is a morning person (What time do you wake up?)",
+      "Switched programs since the start of university (From what to what?)",
+      "Only drinks warm or hot water (Why?)",
+      "Has been to a concert in the past year (Who did you see?)",
+      "Has a random talent or skill (Show us!)",
+      "Is currently trying to build a new habit (What habit?)",
+      "Takes showers longer than 20 minutes (How long?)",
+      "Loves Crocs (What colour?)",
+      "Can say hello in 5+ languages (Say them!)"
     ],
   },
   // card2: {

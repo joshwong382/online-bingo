@@ -49,13 +49,12 @@ export function BingoCard({
         latestLine.type === "diagonal"
           ? "diagonal"
           : latestLine.type === "row"
-          ? `row ${latestLine.index + 1}`
-          : `column ${latestLine.index + 1}`;
+            ? `row ${latestLine.index + 1}`
+            : `column ${latestLine.index + 1}`;
 
       toast.success(`🎉 BINGO! You completed ${lineType}!`, {
-        description: `You now have ${currentCount} bingo line${
-          currentCount > 1 ? "s" : ""
-        }!`,
+        description: `You now have ${currentCount} bingo line${currentCount > 1 ? "s" : ""
+          }!`,
         duration: 5000,
       });
     }
@@ -109,7 +108,7 @@ export function BingoCard({
               checked={checkedCells[index] ?? false}
               note={state.cells[index]?.note ?? ""}
               isWinning={winningCells.has(index)}
-              isFreeSpace={index === 12}
+              isFreeSpace={cardData.freeSpaces.includes(index)}
               onNoteChange={(note) => onNoteChange(index, note)}
             />
           ))}

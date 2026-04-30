@@ -36,7 +36,7 @@ export function BingoCell({
         "select-none group",
         checked && !isWinning && "bg-primary/10 border-primary/30",
         isWinning &&
-          "bg-linear-to-br from-amber-400/30 to-orange-500/30 border-amber-500/50 shadow-lg shadow-amber-500/20",
+        "bg-linear-to-br from-amber-400/30 to-orange-500/30 border-amber-500/50 shadow-lg shadow-amber-500/20",
         isWinning && "animate-pulse",
         !checked && "bg-card hover:bg-accent/30"
       )}

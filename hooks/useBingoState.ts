@@ -13,8 +13,6 @@ export type BingoState = {
 
 export type AllCardsState = Record<string, BingoState>;
 
-const FREE_SPACE_INDEX = 12;
-
 const getInitialCardState = (): BingoState => ({
   cells: Array(25)
     .fill(null)
@@ -54,10 +52,11 @@ export function useBingoState() {
     }));
   }, []);
 
-  const getCheckedCells = useCallback((cardId: string) => {
+  const getCheckedCells = useCallback((cardId: string, freeSpaces: number[]) => {
     const cardState = allCardsState[cardId] ?? getInitialCardState();
+    const freeSet = new Set(freeSpaces);
     return cardState.cells.map((cell, index) => {
-      if (index === FREE_SPACE_INDEX) return true;
+      if (freeSet.has(index)) return true;
       return cell.note.trim().length > 0;
     });
   }, [allCardsState]);

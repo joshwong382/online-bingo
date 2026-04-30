@@ -33,9 +33,11 @@ export default function Home() {
                 </div>
                 <div className="mt-1 text-blue-700 text-xs sm:text-sm">
                   Find people who match a square and type their name to complete
-                  a cell. Complete a row, column, or diagonal to win! Each
-                  person's name can only appear once per Bingo card. Once you
-                  have a Bingo, please shout out "BINGO" to let everyone know!
+                  a cell. Complete 2 rows, columns, or diagonals to win! Each
+                  person's name can only appear once per Bingo card. Winners
+                  will have to answer the extended questions in brackets! Once
+                  you have 2 Bingos, please shout out "BINGO" to let everyone
+                  know!
                 </div>
               </div>
             </div>
