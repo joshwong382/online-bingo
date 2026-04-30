@@ -99,10 +99,14 @@ export function BingoCard({
           </p>
         )}
         {hasBingo && (
-          <p className="text-sm text-amber-600 dark:text-amber-400 font-medium animate-pulse">
-            🎉 You have {completedLines.length} BINGO
-            {completedLines.length > 1 ? "s" : ""}!
-          </p>
+          <div className="text-center py-3 px-4 bg-gradient-to-r from-amber-400 to-orange-500 rounded-lg">
+            <p className="text-xl sm:text-2xl md:text-3xl font-black text-white animate-pulse">
+              🎉 YOU WON! 🎉
+            </p>
+            <p className="text-sm text-white/90 font-medium mt-1">
+              Shout &quot;BINGO&quot; to let everyone know!
+            </p>
+          </div>
         )}
       </CardHeader>
       <CardContent>
