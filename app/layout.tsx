@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${nunito.variable} antialiased`}
       >
         {children}
-        <Toaster position="top-center" richColors closeButton />
+        <Toaster position="top-center" richColors closeButton toastOptions={{ style: { zIndex: 9999 } }} />
       </body>
     </html>
   );
