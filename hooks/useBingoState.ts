@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { cardIds } from "@/data/bingoCards";
 
 export type CellState = {
@@ -12,6 +12,8 @@ export type BingoState = {
 };
 
 export type AllCardsState = Record<string, BingoState>;
+
+const STORAGE_KEY = "bingo-state";
 
 const getInitialCardState = (): BingoState => ({
   cells: Array(25)
@@ -30,8 +32,44 @@ const getInitialAllCardsState = (): AllCardsState => {
   return state;
 };
 
+const loadState = (): AllCardsState => {
+  if (typeof window === "undefined") return getInitialAllCardsState();
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return getInitialAllCardsState();
+    const parsed = JSON.parse(stored) as AllCardsState;
+    // Merge with defaults to handle new cards added after storage was saved
+    const defaults = getInitialAllCardsState();
+    for (const cardId of cardIds) {
+      if (!parsed[cardId]) {
+        parsed[cardId] = defaults[cardId];
+      }
+    }
+    return parsed;
+  } catch {
+    return getInitialAllCardsState();
+  }
+};
+
 export function useBingoState() {
   const [allCardsState, setAllCardsState] = useState<AllCardsState>(getInitialAllCardsState);
+  const [hydrated, setHydrated] = useState(false);
+
+  // Load from localStorage after mount to avoid SSR hydration mismatch
+  useEffect(() => {
+    setAllCardsState(loadState());
+    setHydrated(true);
+  }, []);
+
+  // Persist to localStorage on state changes (skip initial server-rendered state)
+  useEffect(() => {
+    if (!hydrated) return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(allCardsState));
+    } catch {
+      // Storage full or unavailable — silently ignore
+    }
+  }, [allCardsState, hydrated]);
 
   const updateNote = useCallback((cardId: string, index: number, note: string) => {
     setAllCardsState((prev) => ({
