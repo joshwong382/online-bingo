@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Human Bingo",
+  title: "Online Bingo",
   description: "A fun icebreaker game to get to know people!",
 };
 

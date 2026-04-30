@@ -15,7 +15,7 @@ export default function Home() {
         <header className="text-center mb-6 sm:mb-8 md:mb-10">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
             <span className="bg-linear-to-r from-amber-500 via-orange-500 to-red-500 bg-clip-text text-transparent">
-              Human
+              Online
             </span>{" "}
             <span className="bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
               Bingo
