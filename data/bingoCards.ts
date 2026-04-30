@@ -2,6 +2,7 @@ export type BingoCardData = {
   id: string;
   name: string;
   freeSpaces: number[];
+  requiredBingos: number;
   prompts: string[];
 };
 
@@ -10,6 +11,7 @@ export const bingoCards: Record<string, BingoCardData> = {
     id: "card1",
     name: "Get to know your fellow(ship) mates!!",
     freeSpaces: [],
+    requiredBingos: 2,
     prompts: [
       "Has been to 5+ countries outside of Canada (Which ones?)",
       "Has watched the same movie or TV show 3+ times (Which one?)",

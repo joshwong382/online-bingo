@@ -33,7 +33,7 @@ export function BingoCard({
   }));
 
   const { completedLines, winningCells, hasBingo } =
-    useBingoDetection(cellsForDetection);
+    useBingoDetection(cellsForDetection, cardData.requiredBingos);
 
   // Track previous completed lines count to detect new bingos
   const prevLinesCountRef = useRef(0);
@@ -53,14 +53,15 @@ export function BingoCard({
             : `column ${latestLine.index + 1}`;
 
       toast.success(`🎉 BINGO! You completed ${lineType}!`, {
-        description: `You now have ${currentCount} bingo line${currentCount > 1 ? "s" : ""
-          }!`,
+        description: currentCount >= cardData.requiredBingos
+          ? `You have ${currentCount} bingo lines! Shout "BINGO"!`
+          : `You now have ${currentCount} bingo line${currentCount > 1 ? "s" : ""} — keep going for ${cardData.requiredBingos}!`,
         duration: 5000,
       });
     }
 
     prevLinesCountRef.current = currentCount;
-  }, [completedLines]);
+  }, [completedLines, cardData.requiredBingos]);
 
   const handleReset = () => {
     onReset();
@@ -92,6 +93,11 @@ export function BingoCard({
             Reset
           </Button>
         </div>
+        {completedLines.length > 0 && completedLines.length < cardData.requiredBingos && (
+          <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
+            You have {completedLines.length} bingo line{completedLines.length > 1 ? "s" : ""} — keep going for {cardData.requiredBingos}!
+          </p>
+        )}
         {hasBingo && (
           <p className="text-sm text-amber-600 dark:text-amber-400 font-medium animate-pulse">
             🎉 You have {completedLines.length} BINGO

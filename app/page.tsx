@@ -1,4 +1,5 @@
 import { BingoCardSelector } from "@/components/BingoCardSelector";
+import { bingoCards } from "@/data/bingoCards";
 import { Info } from "lucide-react";
 
 export default function Home() {
@@ -33,10 +34,10 @@ export default function Home() {
                 </div>
                 <div className="mt-1 text-blue-700 text-xs sm:text-sm">
                   Find people who match a square and type their name to complete
-                  a cell. Complete 2 rows, columns, or diagonals to win! Each
+                  a cell. Complete {bingoCards.card1.requiredBingos} rows, columns, or diagonals to win! Each
                   person's name can only appear once per Bingo card. Winners
                   will have to answer the extended questions in brackets! Once
-                  you have 2 Bingos, please shout out "BINGO" to let everyone
+                  you have {bingoCards.card1.requiredBingos} Bingos, please shout out "BINGO" to let everyone
                   know!
                 </div>
               </div>

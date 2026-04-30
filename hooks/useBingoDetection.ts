@@ -31,7 +31,7 @@ const WINNING_LINES: BingoLine[] = [
   { type: "diagonal", index: 1, cells: [4, 8, 12, 16, 20] },
 ];
 
-export function useBingoDetection(cells: CellWithChecked[]) {
+export function useBingoDetection(cells: CellWithChecked[], requiredBingos: number) {
   const completedLines = useMemo(() => {
     return WINNING_LINES.filter((line) =>
       line.cells.every((cellIndex) => cells[cellIndex]?.checked)
@@ -46,7 +46,7 @@ export function useBingoDetection(cells: CellWithChecked[]) {
     return winning;
   }, [completedLines]);
 
-  const hasBingo = completedLines.length >= 2;
+  const hasBingo = completedLines.length >= requiredBingos;
 
   return {
     completedLines,
