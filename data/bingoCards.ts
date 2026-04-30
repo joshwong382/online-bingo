@@ -1,6 +1,7 @@
 export type BingoCardData = {
   id: string;
   name: string;
+  freeSpaces: number[];
   prompts: string[];
 };
 
@@ -8,6 +9,7 @@ export const bingoCards: Record<string, BingoCardData> = {
   card1: {
     id: "card1",
     name: "1. Intro",
+    freeSpaces: [],
     prompts: [
       "Loves playing Valorant",
       "Born outside of Canada",

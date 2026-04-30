@@ -16,7 +16,7 @@ export function BingoCardSelector() {
     <BingoCard
       cardData={activeCard}
       state={getCardState(activeCardId)}
-      checkedCells={getCheckedCells(activeCardId)}
+      checkedCells={getCheckedCells(activeCardId, activeCard.freeSpaces)}
       onNoteChange={(index, note) => updateNote(activeCardId, index, note)}
       onReset={() => resetCard(activeCardId)}
     />
