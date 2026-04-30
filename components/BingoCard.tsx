@@ -80,7 +80,7 @@ export function BingoCard({
     >
       <CardHeader>
         <div className="flex items-center justify-between gap-2">
-          <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+          <CardTitle className="text-lg sm:text-xl md:text-2xl font-extrabold bg-linear-to-r from-primary to-primary/70 bg-clip-text text-transparent">
             {cardData.name}
           </CardTitle>
           <Button
